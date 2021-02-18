@@ -9,7 +9,8 @@ public class Test {
 		// TODO Auto-generated method stub
 		System.out.println("TEST");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		System.out.println("git test");
+		System.out.println("dd");
 	}
 
 }

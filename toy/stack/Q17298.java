@@ -22,7 +22,17 @@ public class Q17298 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
             data[i] = Integer.parseInt(st.nextToken());
+            while (!OCE.isEmpty() && data[OCE.peek()] < data[i]) {
+                data[OCE.pop()] = data[i];
+            }
+            OCE.push(i);
         }
-
+        while (!OCE.isEmpty()) {
+            data[OCE.pop()] = -1;
+        }
+        for (int n : data) {
+            sb.append(n).append(" ");
+        }
+        System.out.println(sb.toString());
     }
 }

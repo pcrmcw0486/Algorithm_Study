@@ -55,28 +55,31 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 import java.util.stream.Stream;
 
-// class Node implements Comparable<Node>{
-//     public int to;
-//     public int weight;
-//     public Node(int to, int weight){
-//         this.to = to;
-//         this.weight = weight;
-//     }
+class Node implements Comparable<Node> {
+    public int to;
+    public int weight;
 
-//     @Override
-//     public int compareTo(Node o) {
-//         // TODO Auto-generated method stub
-//         return weight - o.weight;
-//     }
-// }
+    public Node(int to, int weight) {
+        this.to = to;
+        this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Node o) {
+        // TODO Auto-generated method stub
+        return weight - o.weight;
+    }
+}
+
 public class Q9370 {
     static int INF = Integer.MAX_VALUE;
-    public static void main(String[] args) throws IOException{
+
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
 
-        while(T-- > 0){
+        while (T-- > 0) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int V = Integer.parseInt(st.nextToken());
             int E = Integer.parseInt(st.nextToken());
@@ -84,41 +87,41 @@ public class Q9370 {
 
             int[] starting_point = Stream.of(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
             int[][] dist = new int[3][];
-           
+
             ArrayList<Node>[] graph = new ArrayList[V];
             PriorityQueue<Integer> target_list = new PriorityQueue<>();
-            for(int i =0;i<V;i++)
+            for (int i = 0; i < V; i++)
                 graph[i] = new ArrayList<Node>();
-            
-            for(int i =0;i<E;i++){
+
+            for (int i = 0; i < E; i++) {
                 st = new StringTokenizer(br.readLine());
                 int u = Integer.parseInt(st.nextToken()) - 1;
                 int v = Integer.parseInt(st.nextToken()) - 1;
                 int weight = Integer.parseInt(st.nextToken());
-                graph[u].add(new Node(v,weight));
-                graph[v].add(new Node(u,weight));
+                graph[u].add(new Node(v, weight));
+                graph[v].add(new Node(u, weight));
             }
 
-            for(int i =0;i<target_count;i++)
+            for (int i = 0; i < target_count; i++)
                 target_list.offer(Integer.parseInt(br.readLine()) - 1);
 
-            //data 1step 다 받고 거리 생성
-            for(int i =0;i<starting_point.length;i++){
-                dist[i] = dijkstra(graph, starting_point[i]-1, V);
+            // data 1step 다 받고 거리 생성
+            for (int i = 0; i < starting_point.length; i++) {
+                dist[i] = dijkstra(graph, starting_point[i] - 1, V);
             }
 
-            //생성된 거리를 통해 체크하기 (target 오름차순 순으로 검사)
-            while(!target_list.isEmpty()){
+            // 생성된 거리를 통해 체크하기 (target 오름차순 순으로 검사)
+            while (!target_list.isEmpty()) {
                 int target = target_list.poll();
                 int result = INF;
                 int g = starting_point[1] - 1;
-                int h = starting_point[2] -1;
-                if(dist[0][g]!= INF || dist[1][h]!=INF || dist[2][target]!=INF)
+                int h = starting_point[2] - 1;
+                if (dist[0][g] != INF || dist[1][h] != INF || dist[2][target] != INF)
                     result = Math.min(result, dist[0][g] + dist[1][h] + dist[2][target]);
-                if(dist[0][h]!=INF || dist[2][g]!=INF || dist[1][target]!=INF)
+                if (dist[0][h] != INF || dist[2][g] != INF || dist[1][target] != INF)
                     result = Math.min(result, dist[0][h] + dist[2][g] + dist[1][target]);
-                if(result == dist[0][target])
-                    sb.append(target+1).append(" ");
+                if (result == dist[0][target])
+                    sb.append(target + 1).append(" ");
             }
             sb.append("\n");
 
@@ -126,7 +129,7 @@ public class Q9370 {
         System.out.print(sb.toString());
     }
 
-    public static int[] dijkstra(ArrayList<Node>[] graph, int start, int V){
+    public static int[] dijkstra(ArrayList<Node>[] graph, int start, int V) {
         int[] dist = new int[V];
         boolean[] visit = new boolean[V];
         PriorityQueue<Node> pq = new PriorityQueue<>();
@@ -135,14 +138,14 @@ public class Q9370 {
         dist[start] = 0;
         pq.offer(new Node(start, 0));
 
-        while(!pq.isEmpty()){
+        while (!pq.isEmpty()) {
             Node now = pq.poll();
-            if(!visit[now.end]){
-                visit[now.end] = true;
-                for(Node next : graph[now.end]){
-                    if(dist[now.end] + next.weight< dist[next.end]){
-                        dist[next.end] = dist[now.end] + next.weight;
-                        pq.offer(new Node(next.end,dist[next.end]));
+            if (!visit[now.to]) {
+                visit[now.to] = true;
+                for (Node next : graph[now.to]) {
+                    if (dist[now.to] + next.weight < dist[next.to]) {
+                        dist[next.to] = dist[now.to] + next.weight;
+                        pq.offer(new Node(next.to, dist[next.to]));
                     }
                 }
             }

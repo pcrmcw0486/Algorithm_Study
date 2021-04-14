@@ -51,7 +51,7 @@ public class Q11657 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] dist = new int[N];
+        long[] dist = new long[N];
         ArrayList<Bus> bus_list = new ArrayList<>();
 
         Arrays.fill(dist, INF);
@@ -68,21 +68,26 @@ public class Q11657 {
          * 의미
          */
         dist[0] = 0;
-        boolean check= true;
+        boolean check= false;
         for (int i = 0; i < N; i++) {
             for (Bus bus : bus_list) {
                 if (dist[bus.start] == INF)
                     continue;
                 if (dist[bus.start] + bus.time < dist[bus.end]) {
                     dist[bus.end] = dist[bus.start] + bus.time;
-                    if(i == N-1)
-                        check = false;
+                    if(i == N-1){
+                        check = true;
+                        break;
+                    }
                 }
             }
         }
-        if(check)
-            for(int i=1;i<dist.length;i++)
+        
+        if(!check){
+            for(int i=1;i<dist.length;i++){
                 sb.append(dist[i]!=INF?dist[i]:-1).append("\n");
+            }
+        }
         else
             sb.append(-1).append("\n");
         System.out.print(sb.toString());

@@ -31,50 +31,73 @@ package toy.Skills.TwoPointer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.StringTokenizer;
-import java.util.stream.Stream;
 
 public class Q1450 {
+    public static int[] data;
+    public static int C;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
-        int[] item = new int[N];
-        item = Stream.of(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        Arrays.sort(item);
+        C = Integer.parseInt(st.nextToken());
 
-        int left = 0;
-        int right = 0;
-        int sum = 0;
-        double count = 0;
-        int temp = 0;
+        st = new StringTokenizer(br.readLine());
+        data = new int[N];
+        for (int i = 0; i < N; i++)
+            data[i] = Integer.parseInt(st.nextToken());
 
-        // 똑같이 부분합을 구함.
-        // 부분합과 같아지는 시점에서 count개수를 구함.
-        // 다시 진행하다가 부분합과 같아지는 시점을 구함
-        //
-        while (true) {
-            if (sum < C) {
-                if (right == N)
-                    break;
-                sum += item[right];
-                right++;
-            } else {
-                if (sum == C) {
-                    if (temp <= left) {
-                        count += Math.pow(2.0, right - left) - 1;
-                    } else {
-                        count += Math.pow(2.0, temp - left) * (Math.pow(2.0, right - temp) - 1);
-                    }
-                    temp = right;
-                }
-                sum -= item[left];
-                left++;
+        ArrayList<Long> subSumA = new ArrayList<>();
+        ArrayList<Long> subSumB = new ArrayList<>();
+
+        // calc subSum
+        dfs(subSumA, 0, (N / 2), 0L);
+        dfs(subSumB, (N / 2), N, 0L);
+        subSumA.add(0L);
+        subSumB.add(0L);
+
+        // 오름차순 정렬
+        subSumB.sort(new Comparator<Long>() {
+            public int compare(Long o1, Long o2) {
+                return (int) (o1 - o2);
+            };
+        });
+
+        int cnt = 0;
+        for (long subSum : subSumA) {
+            int left = 0;
+            int ans = 0;
+            int right = subSumB.size() - 1;
+            if (subSum > C)
+                continue;
+            while (left <= right) {
+                // System.out.println("[" + left + " , " + right + "]");
+                int mid = (left + right) >> 1;
+                if (subSumB.get(mid) + subSum <= C) {
+                    ans = mid;
+                    left = mid + 1;
+                } else
+                    right = mid - 1;
             }
+            // System.out.println(right);
+            cnt += (right + 1);
+
         }
-        count += Math.pow(2.0, right - temp) - 1;
-        System.out.println((int) count);
+        System.out.println(cnt);
+
+    }
+
+    public static void dfs(ArrayList<Long> a, int start, int end, long sum) {
+        long subSum = sum;
+        for (int i = start; i < end; i++) {
+            subSum += (long) data[i];
+            dfs(a, i + 1, end, subSum);
+            if (subSum <= C)
+                a.add(subSum);
+            subSum -= (long) data[i];
+        }
     }
 }

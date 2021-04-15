@@ -54,8 +54,7 @@ public class Q14003 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = null;
+        StringTokenizer st;
 
         int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N]; // data input

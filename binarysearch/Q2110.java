@@ -1,4 +1,5 @@
 /*
+https://www.acmicpc.net/problem/2110
 *** 공유기 설치 Silver I ***
 *** 접근 방법 및 방향 ***
 인접한 두 공유기 사이가 최대가 된다.

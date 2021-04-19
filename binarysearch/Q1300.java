@@ -1,4 +1,5 @@
 /*
+https://www.acmicpc.net/problem/1300
 *** K 번째 수 ***
 *** 접근 방법 ***
 - 어떠한 수 X를 골랐을 때 그 X보다 작은 수가 K개 있다면

@@ -6,7 +6,11 @@ https://www.acmicpc.net/problem/4803
 인지하고 문제를 접근한다.
 0~N까지 접근하되 이미 방문한 노드를 방문하는 경우는 
 부모 경우 밖에 없어야 한다.(즉 한번만 방문해야함.) 
- > ?? 무슨 오류가 있지.?
+ > ?? 무슨 오류가 있지.? 시발 input 개같은거 or로 해서 시발 몇시간을 날려먹은거냐
+ >> dfs 또는 간선 개수 등으로 트리특징을 이용해서 풀이가 가능하다.
+ >> dfs 또는 bfs로 vertex개수와 edge개수를 구하는데 이때 트리는
+ >> 노드 n에 edge가 n-1이고, 양방향 그래프이므로 모든 edge를 통과하면
+ >> 2n - 2이므로 (2n-2)/2 +1 = vertex 를 이용해 풀 수도 있겟다.
 *** 알고리즘 자료구조 스킬 ***
 BFS, 트리
 *** 문제 조건 및 이해 ***
@@ -32,8 +36,6 @@ import java.util.StringTokenizer;
 public class Q4803 {
     static boolean[] visit;
     static ArrayList<ArrayList<Integer>> tree;
-    static int edge = 0;
-    static int vertex = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -44,60 +46,58 @@ public class Q4803 {
             st = new StringTokenizer(br.readLine());
             int N = Integer.parseInt(st.nextToken());
             int M = Integer.parseInt(st.nextToken());
-            if (N == 0 || M == 0)
+            if (N == 0 && M == 0)
                 break;
 
             tree = new ArrayList<>();
-            for (int i = 0; i < N; i++) {
+            for (int i = 0; i < N + 1; i++) {
                 tree.add(new ArrayList<Integer>());
             }
             for (int i = 0; i < M; i++) {
                 st = new StringTokenizer(br.readLine());
-                int n1 = Integer.parseInt(st.nextToken()) - 1;
-                int n2 = Integer.parseInt(st.nextToken()) - 1;
+                int n1 = Integer.parseInt(st.nextToken());
+                int n2 = Integer.parseInt(st.nextToken());
                 tree.get(n1).add(n2);
                 tree.get(n2).add(n1);
             }
-            visit = new boolean[N];
-
+            visit = new boolean[N + 1];
             int treeCount = 0;
-            for (int i = 0; i < N; i++) {
-                edge = 0;
-                vertex = 0;
-                if (!visit[i]) {
-                    treeCount += checkTree(i);
-                }
+            for (int i = 1; i < N + 1; i++) {
+                if (!visit[i] && travelTree(i))
+                    treeCount++;
             }
 
             if (treeCount == 0) {
-                sb.append("Case ").append(testNum).append(": ").append("No trees.").append("\n");
+                sb.append(String.format("Case %d: No trees. \n", testNum));
             } else if (treeCount == 1) {
-                sb.append("Case ").append(testNum).append(": ").append("There is one tree.").append("\n");
+                sb.append(String.format("Case %d: There is one tree.\n", testNum));
             } else {
-                sb.append("Case ").append(testNum).append(": ").append("A forest of ").append(treeCount)
-                        .append(" trees.").append("\n");
+                sb.append(String.format("Case %d: A forest of %d trees.\n", testNum, treeCount));
             }
             testNum++;
         }
-        System.out.print(sb.toString());
+        System.out.print(sb);
     }
 
-    static int checkTree(int start) {
-        Queue<Integer> q = new LinkedList<>();
-        q.offer(start);
-        int node = 0, edge = 0;
-        while (!q.isEmpty()) {
-            int cur = q.poll();
-            node += 1;
-            visit[cur] = true;
+    public static boolean travelTree(int start) {
+        boolean result = true;
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        visit[start] = true;
+        while (!queue.isEmpty()) {
+            int cur = queue.poll();
             for (int next : tree.get(cur)) {
-                edge += 1;
                 if (!visit[next]) {
-                    q.offer(next);
+                    visit[next] = true;
+                    queue.add(next);
+                    tree.get(next).remove(tree.get(next).indexOf(cur));
+
+                } else {
+                    return false;
                 }
             }
         }
-        return (edge / 2) + 1 == node ? 1 : 0;
+        return result;
     }
 
 }

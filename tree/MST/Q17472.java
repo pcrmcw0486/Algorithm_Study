@@ -72,7 +72,55 @@ public class Q17472 {
         }
         //////////////// --- FUCKING CALCUL EDGE --- ///////////////////
         ArrayList<Edge3> edgelist = new ArrayList<>();
-
+        // 가로 방향
+        for (int i = 0; i < N; i++) {
+            int start = -1;
+            int end = -1;
+            int dist = 0;
+            for (int j = 0; j < M; j++) {
+                if (start == -1 && newMap[i][j] != 0)
+                    start = newMap[i][j];
+                else if (start != -1 && newMap[i][j] == 0)
+                    dist++;
+                else if (start != -1 && newMap[i][j] != 0 && start == newMap[i][j]) {
+                    dist = 0;
+                } else if (start != -1 && newMap[i][j] != 0 && start != newMap[i][j]) {
+                    end = newMap[i][j];
+                    // make Edge
+                    if (dist > 1)
+                        edgelist.add(new Edge3(start, end, dist));
+                    start = end;
+                    end = -1;
+                    dist = 0;
+                }
+            }
+        }
+        // 세로방향
+        for (int i = 0; i < M; i++) {
+            int start = -1;
+            int end = -1;
+            int dist = 0;
+            for (int j = 0; j < N; j++) {
+                if (start == -1 && newMap[j][i] != 0)
+                    start = newMap[j][i];
+                else if (start != -1 && newMap[j][i] == 0)
+                    dist++;
+                else if (start != -1 && newMap[j][i] != 0 && start == newMap[j][i]) {
+                    dist = 0;
+                } else if (start != -1 && newMap[j][i] != 0 && newMap[j][i] != start) {
+                    end = newMap[j][i];
+                    if (start == end) {
+                        dist = 0;
+                        continue;
+                    }
+                    if (dist > 1)
+                        edgelist.add(new Edge3(start, end, dist));
+                    start = end;
+                    end = -1;
+                    dist = 0;
+                }
+            }
+        }
         ////////////////////////////////////////////////////////////////////
 
         //////////////// --------- KRUSKAL ------- ////////////////

@@ -26,35 +26,38 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Q1786 {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String T = br.readLine();
         String P = br.readLine();
         int[] failure = new int[P.length()];
-        
-        for(int i =1, j=0; i<P.length();i++){
-            while(j>0 && P.charAt(i)!=P.charAt(j))j=failure[j-1];
-            if(P.charAt(i)==P.charAt(j))failure[i] = ++j;
+
+        for (int i = 1, j = 0; i < P.length(); i++) {
+            while (j > 0 && P.charAt(i) != P.charAt(j))
+                j = failure[j - 1];
+            if (P.charAt(i) == P.charAt(j))
+                failure[i] = ++j;
         }
         int ansCnt = 0;
         ArrayList<Integer> ansList = new ArrayList<>();
-        for(int j=0,i =0;i<T.length();i++){
-            while(j>0 && T.charAt(i)!=P.charAt(j)) j = failure[j-1];
-            if(T.charAt(i) == P.charAt(j)){
-                if(j == P.length()-1){
-                    ansList.add(i-P.length()+2);
+        for (int j = 0, i = 0; i < T.length(); i++) {
+            while (j > 0 && T.charAt(i) != P.charAt(j))
+                j = failure[j - 1];
+            if (T.charAt(i) == P.charAt(j)) {
+                if (j == P.length() - 1) {
+                    ansList.add(i - P.length() + 2);
                     ansCnt++;
                     j = failure[j];
-                }
-                else j++;
+                } else
+                    j++;
             }
         }
         StringBuilder sb = new StringBuilder();
         sb.append(ansCnt).append("\n");
-        for(int ans : ansList){
+        for (int ans : ansList) {
             sb.append(ans).append(" ");
         }
         System.out.println(sb.toString());
     }
-    
+
 }

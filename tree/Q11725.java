@@ -1,5 +1,5 @@
 /*
-ctrl +c, ctrl + v
+https://www.acmicpc.net/problem/11725
 List<Integer>[] adj = new ArrayList[N+1];
 for(int i = 1;i<=N;i++)
     adj[i] = new ArrayList<>();

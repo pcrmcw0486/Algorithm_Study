@@ -62,7 +62,7 @@ public class Q4354 {
             // 패턴이 홀수일 때 s=a^n을 만족하려면
             // 총 문자열에서 패턴을 뺏을 때 나머지로도 빠져야함.
             int ans = S.length() % (S.length() - failure[S.length() - 1]) != 0 ? 1
-                    : S.length() / (S.length() - pi[S.length() - 1]);
+                    : S.length() / (S.length() - failure[S.length() - 1]);
             sb.append(ans).append("\n");
         }
         System.out.print(sb.toString());

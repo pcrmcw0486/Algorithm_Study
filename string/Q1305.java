@@ -1,4 +1,4 @@
-/*
+/** 
 https://www.acmicpc.net/problem/1305
 광고 Platinum V
 *** 접근 방법 ***

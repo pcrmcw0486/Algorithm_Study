@@ -1,4 +1,4 @@
-package programmers.kakao;
+package programmers.kakao.year2020;
 
 import java.io.BufferedReader;
 import java.io.IOException;

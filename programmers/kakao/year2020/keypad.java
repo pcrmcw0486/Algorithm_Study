@@ -6,7 +6,7 @@
  *** 알고리즘 자료구조 스킬 ***
  구현, %와 /를 이용하는. 순차적으로 증가하는 2차원 배열.
  */
-package programmers.kakao;
+package programmers.kakao.year2020;
 
 import java.io.BufferedReader;
 import java.io.IOException;

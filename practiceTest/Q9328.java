@@ -47,7 +47,7 @@ public class Q9328 {
     static int w;
     static int h;
     static Queue<Point1> candidate;
-    static Set<Character> keySet
+    static Set<Character> keySet;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -114,10 +114,10 @@ public class Q9328 {
                 if (graph[nx][ny] == '*') {
 
                 } else if (Character.isUpperCase(graph[nx][ny])) {
-                    if(keySet.contains(Character.valueOf(Character.toLowerCase(graph[nx][ny])){
-                        
+                    if (keySet.contains(Character.valueOf(Character.toLowerCase(graph[nx][ny])))) {
+                        // todo
                     }
-                } else if(Character.isLowerCase(graph[nx][ny])){
+                } else if (Character.isLowerCase(graph[nx][ny])) {
 
                 }
             }

@@ -34,21 +34,24 @@ public class Q1253 {
                 count++;
                 continue;
             }
-            for (int l = 0, r = data.length - 1; l < r;) {
+            int l = 0;
+            int r = data.length - 1;
+            while (l < r) {
                 int sum = data[l] + data[r];
-                if (sum > data[mid]) {
-                    r--;
-                    if (r == mid)
-                        r--;
-                } else if (sum < data[mid]) {
+                if (l == mid)
                     l++;
-                    if (l == mid)
+                else if (r == mid)
+                    r--;
+                else {
+                    if (sum < data[mid])
                         l++;
-                } else {
-                    count++;
-                    set.add(data[mid]);
-                    // System.out.println(data[mid]);
-                    break;
+                    else if (sum > data[mid])
+                        r--;
+                    else {
+                        count++;
+                        set.add(data[mid]);
+                        break;
+                    }
                 }
             }
         }

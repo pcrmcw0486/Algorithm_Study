@@ -29,7 +29,7 @@ public class Q14267{
             st = new StringTokenizer(br.readLine());
             int p = Integer.parseInt(st.nextToken());
             int v =Integer.parseInt(st.nextToken());
-            answer[p] = v;
+            answer[p] += v;
         }
         good(1,0);
         StringBuilder sb = new StringBuilder();

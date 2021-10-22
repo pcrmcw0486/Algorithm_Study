@@ -41,9 +41,7 @@ public class Q11052 {
             for(int j = 1;j<i+1;j++){
                 dp[i] = Math.max(dp[i],dp[j] + dp[i-j]);
             }
-            System.out.print(dp[i] + " ");
         }
-        System.out.println();
         System.out.println(dp[N]);
     }
 }

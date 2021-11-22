@@ -22,35 +22,33 @@ public class Q1562 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[][][] dp = new int[101][10][1 << 10];
 
-        for (int i = 0; i < 10; i++) {
-            dp[1][i][1 << i] = 1;
-        }
-
-        for (int i = 2; i < 101; i++) {
-            for (int j = 0; j < 10; j++) {
-                for (int p = 0;p< 1<<10;p++) {
+        if (N < 10)
+            System.out.println(0);
+        else if (N == 10)
+            System.out.println(1);
+        else {
+            int[][] dp = new int[101][10];
+            dp[10][0] = dp[10][9] = 1;
+            for (int i = 11; i < 101; i++) {
+                for (int j = 0; j < 10; j++) {
                     if (j == 0) {
-                        dp[i][j][p | 1 << 0] = (dp[i][j][p | 1 << 0] + dp[i - 1][1][p]) % 1000000000;
+                        dp[i][j] = dp[i - 1][1] % 1000000000;
+                        continue;
+                    } else if (j == 9) {
+                        dp[i][j] = dp[i - 1][8] % 1000000000;
                         continue;
                     }
-                    if(j==9){
-                        dp[i][j][p|1<<9] = (dp[i][j][p|1<<9] + dp[i-1][8][p]) % 1000000000;
-                        continue;
-                      }
-                    dp[i][j][p | 1 << (j)] = (dp[i][j][p | 1 << j] + dp[i - 1][j - 1][p]) % 1000000000;
-                    dp[i][j][p | 1 << (j)] = (dp[i][j][p | 1 << j] + dp[i - 1][j + 1][p]) % 1000000000;
+                    dp[i][j] = (dp[i - 1][j - 1] + dp[i - 1][j + 1]) % 1000000000;
                 }
             }
-        }
-        int sum = 0;
+            int sum = 0;
+            for (int i = 1; i < 10; i++) {
+                sum = (sum + dp[N][i]) % 1000000000;
+            }
+            System.out.println(sum);
 
-        for (int j = 1; j < 10; j++) {
-            sum = (sum + dp[N][j][(1 << 10) - 1]) % 1000000000;
         }
-        System.out.println(sum);
+
     }
-
-    //dfs로 짜기?
 }

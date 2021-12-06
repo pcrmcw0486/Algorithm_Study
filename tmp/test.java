@@ -1,4 +1,4 @@
-package solvedac.level3;
+package tmp;
 
 import java.util.*;
 import java.io.*;

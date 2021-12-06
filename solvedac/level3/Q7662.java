@@ -108,11 +108,29 @@ public class Q7662 {
     }
 
     // TreeMap
-    public void solution2() {
-        TreeMap<Integer, String> map = new TreeMap<Integer, String>();// TreeMap생성
-        map.put(1, "사과");// 값 추가
-        map.put(2, "복숭아");
-        map.put(3, "수박");
-
+    public void solution2() throws IOException {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        StringTokenizer st;
+        int k = Integer.parseInt(br.readLine());
+        for (int i = 0; i < k; i++) {
+            st = new StringTokenizer(br.readLine());
+            String cmd = st.nextToken();
+            int val = Integer.parseInt(st.nextToken());
+            if (cmd.equals("I")) {
+                map.merge(val, 1, Integer::sum); // ??
+            } else {
+                if (map.isEmpty())
+                    continue;
+                int target = (val == 1) ? map.lastKey() : map.firstKey();
+                if (map.get(target) > 1)
+                    map.put(target, map.get(target) - 1);
+                else
+                    map.remove(target);
+            }
+        }
+        if (map.isEmpty())
+            sb.append("EMPTY\n");
+        else
+            sb.append(map.lastKey() + " " + map.firstKey() + "\n");
     }
 }

@@ -51,7 +51,7 @@ public class Q7662 {
         sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
         while (T-- > 0) {
-            solution();
+            solution2();
         }
         System.out.print(sb.toString());
     }
@@ -108,7 +108,7 @@ public class Q7662 {
     }
 
     // TreeMap
-    public void solution2() throws IOException {
+    public static void solution2() throws IOException {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         StringTokenizer st;
         int k = Integer.parseInt(br.readLine());
@@ -117,7 +117,8 @@ public class Q7662 {
             String cmd = st.nextToken();
             int val = Integer.parseInt(st.nextToken());
             if (cmd.equals("I")) {
-                map.merge(val, 1, Integer::sum); // ??
+             map.merge(val, 1, Integer::sum); // ??
+            map.put(val, map.getOrDefault(val, 0) + 1);
             } else {
                 if (map.isEmpty())
                     continue;

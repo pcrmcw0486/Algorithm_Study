@@ -1,4 +1,4 @@
-package solvedac.level4.gold5;
+package solvedac.level4.gold4;
 /*
 2021.12.22
 문제번호 : Q17144

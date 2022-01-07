@@ -38,7 +38,62 @@ import java.io.*;
 import java.util.*;
 
 public class Q9935 {
+    static String str;
+    static String pat;
+    final static String EXCEPT_CASE = "FRULA";
+
     public static void main(String[] args) throws Exception {
+        input();
+        solution();
+    }
+
+    public static void input() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        str = br.readLine();
+        pat = br.readLine();
+    }
+
+    public static void solution() {
+        char[] strArr = str.toCharArray();
+        char[] patArr = pat.toCharArray();
+        char[] ans = new char[str.length()];
+        int idx = 0;
+        if (patArr.length > strArr.length) {
+            System.out.println(str);
+            return;
+        }
+        boolean explosion = false;
+        for (int i = 0; i < str.length(); i++) {
+            // 확인 요건
+            if (strArr[i] == patArr[patArr.length - 1] && idx >= patArr.length - 1) {
+                explosion = true;
+                for (int j = idx - pat.length() + 1; j < idx; j++) {
+                    if (patArr[j - (idx - pat.length() + 1)] != ans[j]) {
+                        explosion = false;
+                        break;
+                    }
+                }
+                if (explosion) {
+                    idx -= pat.length() - 1;
+                    continue;
+                }
+            }
+
+            ans[idx++] = strArr[i];
+        }
+        if (idx == 0)
+            System.out.println(EXCEPT_CASE);
+        else {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < idx; i++) {
+                sb.append(ans[i]);
+            }
+            System.out.println(sb.toString());
+        }
+
+    }
+
+    public static void solutionPrev() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char[] input = br.readLine().toCharArray();
         char[] pat = br.readLine().toCharArray();

@@ -37,6 +37,9 @@ r,c 는 1부터 시작
     다시한번 풀어보고 싶네.
 제한 조건 : 
 N 50 M 13 치킨집 개수 <= Min(M,13)
+
+## 중복 허용 X 오름차순 
+## 참조 https://www.acmicpc.net/source/32167915
 */
 
 import java.io.*;
@@ -45,130 +48,78 @@ import java.util.*;
 public class Q15686 {
     static int N;
     static int M;
-    static int[][] map;
-    static ArrayList<Point> houses;
-    static ArrayList<Point> chickenHouse;
-    static HashSet<Point> startPoint;
-    static HashSet<Integer> pick;
-    static int chickenHouseSize;
+    static ArrayList<Point> house;
+    static ArrayList<Point> chicken;
+    static boolean[] possible;
     static int ans;
-    static int[][] distInfo;
 
     public static void main(String[] args) throws IOException {
+        input();
+        solution();
+    }
+
+    public static void input() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        house = new ArrayList<Point>();
+        chicken = new ArrayList<Point>();
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        houses = new ArrayList<Point>();
-        chickenHouse = new ArrayList<Point>();
-        startPoint = new HashSet<Point>();
-        pick = new HashSet<Integer>();
-        ans = Integer.MAX_VALUE;
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
                 int option = Integer.parseInt(st.nextToken());
                 if (option == 1) {
-                    houses.add(new Point(i, j, 0));
+                    house.add(new Point(i, j));
                 } else if (option == 2) {
-                    chickenHouse.add(new Point(i, j, 0));
+                    chicken.add(new Point(i, j));
                 }
             }
         }
-        // find(0, 0);
-        distInfo = new int[houses.size()][chickenHouse.size()];
-        for (int i = 0; i < houses.size(); i++) {
-            Point house = houses.get(i);
-            for (int j = 0; j < chickenHouse.size(); j++) {
-                Point ch = chickenHouse.get(j);
-                distInfo[i][j] = Math.abs(house.x - ch.x) + Math.abs(house.y - ch.y);
-            }
-        }
-        solution(0, 0);
-        System.out.println(cnt);
+        possible = new boolean[chicken.size()];
+    }
+
+    public static void solution() {
+        ans = Integer.MAX_VALUE;
+        // M개를 골랐을 때
+        selectChickenHouse(0, 0);
         System.out.println(ans);
     }
 
-    static int cnt = 0;
-
-    public static void solution(int depth, int idx) {
+    public static void selectChickenHouse(int depth, int idx) {
         if (depth == M) {
-            for (int p : pick) {
-                System.out.print(p + " ");
-            }
-            System.out.println();
-            cnt++;
-            int ret = 0;
-            for (int i = 0; i < houses.size(); i++) {
-                int min = Integer.MAX_VALUE;
-                for (int p : pick) {
-                    min = Math.min(min, distInfo[i][p]);
+            int cityDist = 0;
+            for (Point h : house) {
+                int chickenDist = Integer.MAX_VALUE;
+                for (int i = 0; i < chicken.size(); i++) {
+                    if (!possible[i])
+                        continue;
+                    Point c = chicken.get(i);
+                    chickenDist = Math.min(chickenDist, Math.abs(h.x - c.x) + Math.abs(h.y - c.y));
                 }
-                ret += min;
+                cityDist += chickenDist;
             }
-            ans = Math.min(ans, ret);
+            ans = Math.min(ans, cityDist);
             return;
         }
-
-        for (int i = idx; i < chickenHouse.size(); i++) {
-            pick.add(i);
-            solution(depth + 1, i + 1);
-            pick.remove(i);
+        if (chicken.size() - idx < M - depth)
+            return;
+        for (int i = idx; i < chicken.size(); i++) {
+            if (!possible[i]) {
+                possible[i] = true;
+                selectChickenHouse(depth + 1, i + 1);
+                possible[i] = false;
+            }
         }
+
     }
-
-    // public static void find(int depth, int idx) {
-    // if (depth == M) {
-    // int dist = findMin();
-    // ans = Math.min(ans, dist);
-    // return;
-    // }
-    // for (int i = idx; i < chickenHouse.size(); i++) {
-    // startPoint.add(chickenHouse.get(i));
-    // find(depth + 1, idx + 1);
-    // startPoint.remove(chickenHouse.get(i));
-    // }
-    // }
-
-    // public static int findMin() {
-    // boolean[][] visited = new boolean[N][N];
-    // int[][] dist = new int[N][N];
-    // int[][] dir = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
-    // Queue<Point> queue = new LinkedList<Point>();
-    // for (Point p : startPoint) {
-    // visited[p.x][p.y] = true;
-    // queue.add(p);
-    // }
-    // while (!queue.isEmpty()) {
-    // Point cur = queue.poll();
-    // for (int i = 0; i < 4; i++) {
-    // int nx = cur.x + dir[i][0];
-    // int ny = cur.y + dir[i][1];
-    // if (nx < 0 || ny < 0 || nx > N - 1 || ny > N - 1)
-    // continue;
-    // if (visited[nx][ny])
-    // continue;
-    // visited[nx][ny] = true;
-    // dist[nx][ny] = cur.dist + 1;
-    // queue.add(new Point(nx, ny, dist[nx][ny]));
-    // }
-    // }
-    // int ret = 0;
-    // for (Point house : houses) {
-    // ret += dist[house.x][house.y];
-    // }
-
-    // return ret;
-    // }
 
     static class Point {
         int x, y;
-        int dist;
 
-        Point(int x, int y, int dist) {
+        Point(int x, int y) {
             this.x = x;
             this.y = y;
-            this.dist = dist;
         }
 
     }

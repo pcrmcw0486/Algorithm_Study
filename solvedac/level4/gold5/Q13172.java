@@ -23,5 +23,50 @@ import java.io.*;
 import java.util.*;
 
 public class Q13172 {
+    static int N, S;
+    final static int MOD = 1000000007;
 
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        int M = Integer.parseInt(br.readLine());
+        long ans = 0;
+        for (int dice = 0; dice < M; dice++) {
+            st = new StringTokenizer(br.readLine());
+            N = Integer.parseInt(st.nextToken());
+            S = Integer.parseInt(st.nextToken());
+            int gcd = GCD(S, N);
+            S /= gcd;
+            N /= gcd;
+            if (S % N == 0)
+                ans += S / N;
+            else {
+                long inverseB = findInverse(MOD - 2);
+                ans += (S * inverseB) % MOD;
+            }
+        }
+        ans %= MOD;
+        System.out.println(ans);
+    }
+
+    public static long findInverse(int n) {
+        if (n == 1)
+            return N;
+        long ret = findInverse(n / 2) % MOD;
+        ret = (ret * ret) % MOD;
+        if (n % 2 == 0) {
+            return ret;
+        } else
+            return (ret * N) % MOD;
+    }
+
+    public static int GCD(int A, int B) {
+        int r = 1;
+        while (B != 0) {
+            r = A % B;
+            A = B;
+            B = r;
+        }
+        return A;
+    }
 }

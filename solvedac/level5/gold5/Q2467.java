@@ -1,4 +1,4 @@
-package solvedac.level4.gold5;
+package solvedac.level5.gold5;
 /*
 2022.01.04
 문제번호 : Q2467

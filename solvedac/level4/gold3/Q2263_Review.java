@@ -48,7 +48,7 @@ public class Q2263_Review {
 
     public static void initData() {
         idx = new int[N + 1];
-        for (int i = 0; i < N ; i++){ 
+        for (int i = 0; i < N; i++) {
             idx[inorder[i]] = i;
         }
     }
@@ -59,7 +59,7 @@ public class Q2263_Review {
         // Right 또는 LEFT가 없는 경우를 보면 여기서 끝나지 않음.
         // if (postEnd - postStart == 1)
         // return;
-        if (postEnd <= postStart)
+        if (postEnd <= postStart )
             return;
 
         // find Value from postorder

@@ -49,7 +49,7 @@ public class Q1194 {
 
         @Override
         public int compareTo(Position o) {
-            // TODO Auto-generated method stub
+
             return this.dist - o.dist;
         }
     }

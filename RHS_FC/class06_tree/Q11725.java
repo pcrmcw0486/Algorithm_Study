@@ -10,7 +10,7 @@ import java.io.*;
 public class Q11725 {
     static int[] parent;
     static boolean[] visited;
-    static ArrayList<ArrayList<Integer>> SolveByCategory.tree;
+    static ArrayList<ArrayList<Integer>> tree;
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());

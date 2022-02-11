@@ -21,7 +21,7 @@ public class Q11725 {
         StringTokenizer st = null;
         StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
-        ArrayList<ArrayList<Integer>> SolveByCategory.tree = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> tree = new ArrayList<>();
         for (int i = 0; i < N + 1; i++) {
             tree.add(new ArrayList<Integer>());
         }

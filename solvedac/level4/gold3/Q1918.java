@@ -38,7 +38,7 @@ public class Q1918 {
                     operatorStack.push(c);
                 } else if (c == ')') {
                     while (!operatorStack.isEmpty()) {
-                        // todo
+
                         char o = operatorStack.pop();
                         if (o == '(')
                             break;

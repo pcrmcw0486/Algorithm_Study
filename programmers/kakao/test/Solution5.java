@@ -15,7 +15,7 @@ public class Solution5 {
         // System.out.println("answer" + answer2);
     }
 
-    static ArrayList<Integer>[] SolveByCategory.tree;
+    static ArrayList<Integer>[] tree;
     static int[] p;
 
     public int solution(int[] info, int[][] edges) {

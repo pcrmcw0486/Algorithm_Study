@@ -48,18 +48,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-class Node1 {
-    int end;
-    int length;
 
-    Node1(int end, int length) {
-        this.end = end;
-        this.length = length;
-    }
-}
 
 public class Q1167 {
-    static List<Node1>[] SolveByCategory.tree;
+    static class Node1 {
+        int end;
+        int length;
+
+        Node1(int end, int length) {
+            this.end = end;
+            this.length = length;
+        }
+    }
+
+    static List<Node1>[] tree;
     static boolean[] visit;
     static int point1;
     static int result = 0;

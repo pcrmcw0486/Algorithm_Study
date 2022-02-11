@@ -19,7 +19,7 @@ import java.io.*;
 import java.util.*;
 
 public class Q1967 {
-    static ArrayList<Node>[] SolveByCategory.tree;
+    static ArrayList<Node>[] tree;
     static boolean[] visited;
     static int onePoint;
     static int result;

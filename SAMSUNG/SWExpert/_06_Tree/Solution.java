@@ -1,7 +1,5 @@
 package SAMSUNG.SWExpert._06_Tree;
 
-import SWExpert._05_Graph.UserSolution;
-
 import java.util.Scanner;
 
 class Solution {

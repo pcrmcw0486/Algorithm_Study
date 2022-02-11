@@ -17,7 +17,7 @@ public class UserSolution {
     }
 
     public void addUser(int uID, int income) {
-        //todo
+
         pq.add(new User(uID, income));
     }
 

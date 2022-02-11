@@ -35,7 +35,7 @@ import java.util.StringTokenizer;
 
 public class Q4803 {
     static boolean[] visit;
-    static ArrayList<ArrayList<Integer>> SolveByCategory.tree;
+    static ArrayList<ArrayList<Integer>> tree;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

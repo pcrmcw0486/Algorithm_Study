@@ -22,7 +22,7 @@ https://www.acmicpc.net/problem/4803
 import java.io.*;
 import java.util.*;
 public class Q4803 {
-    static ArrayList<ArrayList<Integer>> SolveByCategory.tree;
+    static ArrayList<ArrayList<Integer>> tree;
     static boolean[] visited;
     static int vertex, edge;
     static boolean isCycle;

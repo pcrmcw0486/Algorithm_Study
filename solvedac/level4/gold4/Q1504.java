@@ -35,7 +35,7 @@ public class Q1504 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        // graph input
+        // SolveByCategory.graph input
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());

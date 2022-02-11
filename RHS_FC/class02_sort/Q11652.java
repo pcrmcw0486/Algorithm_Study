@@ -21,7 +21,7 @@ N범위 : 100,000
     데이터 읽기.근데 다 읽기 전까지 뭐가 max인지 모름.
     그래서 하고 또 max별로 빼야함.
     별로 없네.
-3. tree HashMap
+3. SolveByCategory.tree HashMap
 )
  */
 import java.io.*;

@@ -11,11 +11,11 @@ LCS길이와 LCS를 출력한다.
 0이라면 출력하지 않는다.
 
 접근 방법 :
- LCS문제 + 출력(backtracking)
- dp[i][j] = 문자열 A의 i번째까지와 문자열 B의 j번까지의 최장 공통 수열.
- if(A[i]== B[j]) dp[i-1][j-1] +1
+ LCS문제 + 출력(SolveByCategory.backtracking)
+ SolveByCategory.dp[i][j] = 문자열 A의 i번째까지와 문자열 B의 j번까지의 최장 공통 수열.
+ if(A[i]== B[j]) SolveByCategory.dp[i-1][j-1] +1
  else{
-     dp[i][j] = MAth.max(dp[i-1][j], dp[i][j-1]);
+     SolveByCategory.dp[i][j] = MAth.max(SolveByCategory.dp[i-1][j], SolveByCategory.dp[i][j-1]);
  }
  무슨 말이냐하면.
  ACAYKP

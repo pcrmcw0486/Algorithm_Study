@@ -7,9 +7,9 @@ package RHS_FC.class09_dp;
 -----------------
 인접한 모든 자리 차이가 1이면 계단수
 시작 숫자 k 길이 len에 대하여
-dp[k][len] = dp[k-1][len-1] + dp[k+1][len-1] 이라면 
-각각의 dp[k][len]이 k로 시작하는 길이 len인 계단 수의 개수 이기 때문에 보장됨.
-dp[len][숫자]
+SolveByCategory.dp[k][len] = SolveByCategory.dp[k-1][len-1] + SolveByCategory.dp[k+1][len-1] 이라면
+각각의 SolveByCategory.dp[k][len]이 k로 시작하는 길이 len인 계단 수의 개수 이기 때문에 보장됨.
+SolveByCategory.dp[len][숫자]
 접근 방법 :
 제한 조건 : 
 1<= N <= 100

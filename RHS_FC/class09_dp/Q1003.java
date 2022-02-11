@@ -10,15 +10,15 @@ n== 1 1
 return f(n-1) + f(n-2)와 같은 함수가 있다고 할 때
 f(3) -> f(2) + f(1) -> f(1) f(0) f(1) 이라서 0  >> 1번 1 >> 2번
 이라고 할 때 N 호출 시 0과 1이 몇번 출력되는지 구하는 프로그램을 작성하자
-dp[i][0] = 0 호출 횟수 dp[i][1] 1호출 횟수라고 하자.
+SolveByCategory.dp[i][0] = 0 호출 횟수 SolveByCategory.dp[i][1] 1호출 횟수라고 하자.
 x 호출시 x-1과 x-2가 호출되므로 
-dp[x][0] = dp[x-1][0] + dp[x-2][0]
-dp[x][1] = dp[x-1][1] + dp[x-2][1]
-dp[0][0] = 1 dp[1][1] = 1
-dp[2][0] = dp[1][0] + dp[0][0] = 1
-dp[2][1] = dp[1][1] + dp[0][1] = 1
-dp[3][0] = dp[2][0] dp[1][0] = 1
-dp[3][1] = dp[2][1] dp[1][1] = 2///
+SolveByCategory.dp[x][0] = SolveByCategory.dp[x-1][0] + SolveByCategory.dp[x-2][0]
+SolveByCategory.dp[x][1] = SolveByCategory.dp[x-1][1] + SolveByCategory.dp[x-2][1]
+SolveByCategory.dp[0][0] = 1 SolveByCategory.dp[1][1] = 1
+SolveByCategory.dp[2][0] = SolveByCategory.dp[1][0] + SolveByCategory.dp[0][0] = 1
+SolveByCategory.dp[2][1] = SolveByCategory.dp[1][1] + SolveByCategory.dp[0][1] = 1
+SolveByCategory.dp[3][0] = SolveByCategory.dp[2][0] SolveByCategory.dp[1][0] = 1
+SolveByCategory.dp[3][1] = SolveByCategory.dp[2][1] SolveByCategory.dp[1][1] = 2///
 접근 방법 : Dynamic programming
 제한 조건 : 
 O(N)

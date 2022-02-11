@@ -6,21 +6,21 @@ package RHS_FC.class09_dp;
 문제이해 
 -----------------
 1,2,3의 합으로 나타내는 방법 중 같은 수를 두 번 이상 (연속해서) 사용하면 안됨.
-dp[1]= 1
-dp[2] =1
-dp[3] = 3 // 1+2 // 2+1// 인데 인데..? 방법은 3가지 인데.
-dp[4] = 3 +1 // 1 + 3 // 1 +2 + 1
-      dp[i][0] : 1로 끝나는 경우
-      dp[i][1] : 2로 끝나는 경우
-      dp[i][2] : 3으로 끝나는 경우
-  dp[3]의 경우
-  dp[3][0] = 1
-  dp[3][1] = 1
-  dp[3][2] = 1
+SolveByCategory.dp[1]= 1
+SolveByCategory.dp[2] =1
+SolveByCategory.dp[3] = 3 // 1+2 // 2+1// 인데 인데..? 방법은 3가지 인데.
+SolveByCategory.dp[4] = 3 +1 // 1 + 3 // 1 +2 + 1
+      SolveByCategory.dp[i][0] : 1로 끝나는 경우
+      SolveByCategory.dp[i][1] : 2로 끝나는 경우
+      SolveByCategory.dp[i][2] : 3으로 끝나는 경우
+  SolveByCategory.dp[3]의 경우
+  SolveByCategory.dp[3][0] = 1
+  SolveByCategory.dp[3][1] = 1
+  SolveByCategory.dp[3][2] = 1
   ---------------------
-   dp[4][0] = dp[i-1][1] + dp[i-1][2] >> 2
-   dp[4][1] = dp[i-2][0] + dp[i-2][2] >> 0
-   dp[4][2] = dp[i-3][0] + dp[i-3][1] >> 1 //3으로 끝난다면 
+   SolveByCategory.dp[4][0] = SolveByCategory.dp[i-1][1] + SolveByCategory.dp[i-1][2] >> 2
+   SolveByCategory.dp[4][1] = SolveByCategory.dp[i-2][0] + SolveByCategory.dp[i-2][2] >> 0
+   SolveByCategory.dp[4][2] = SolveByCategory.dp[i-3][0] + SolveByCategory.dp[i-3][1] >> 1 //3으로 끝난다면
 접근 방법 :
 제한 조건 : 
 */

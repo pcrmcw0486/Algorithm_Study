@@ -6,13 +6,13 @@ package RHS_FC.class09_dp;
 문제이해 
 -----------------
 1, 2, 3의 합으로 나타내는 방법이 있을 때 합은 대칭을 이루어야한..다?
-dp[i]가 대칭일 때
->> dp[0] = 1;
->> 1 dp[i-2] 1 i>2
->> 2 dp[i-4] 2 i>4
->> 3 dp[i-6] 3 도 대칭이 보장된다. dp[x]가 대칭이므로. if(i>6)
-dp[1] = 1
-dp[2] = 1
+SolveByCategory.dp[i]가 대칭일 때
+>> SolveByCategory.dp[0] = 1;
+>> 1 SolveByCategory.dp[i-2] 1 i>2
+>> 2 SolveByCategory.dp[i-4] 2 i>4
+>> 3 SolveByCategory.dp[i-6] 3 도 대칭이 보장된다. SolveByCategory.dp[x]가 대칭이므로. if(i>6)
+SolveByCategory.dp[1] = 1
+SolveByCategory.dp[2] = 1
 
 2 >  1 1  2 
 3 > 1 1 1 3

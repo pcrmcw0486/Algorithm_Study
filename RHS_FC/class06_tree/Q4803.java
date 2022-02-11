@@ -22,7 +22,7 @@ https://www.acmicpc.net/problem/4803
 import java.io.*;
 import java.util.*;
 public class Q4803 {
-    static ArrayList<ArrayList<Integer>> tree;
+    static ArrayList<ArrayList<Integer>> SolveByCategory.tree;
     static boolean[] visited;
     static int vertex, edge;
     static boolean isCycle;
@@ -69,7 +69,7 @@ public class Q4803 {
          if(treeCount ==0){
             sb.append("No trees.\n");
          }else if(treeCount == 1){;
-             sb.append("There is one tree\n");
+             sb.append("There is one SolveByCategory.tree\n");
          }else{
             sb.append("A forest of " + treeCount + " trees.\n");
          }

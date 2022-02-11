@@ -44,7 +44,7 @@ public class Q1197 {
         // sort asc
         Collections.sort(edgeList);
 
-        // Spanning tree 간선 N-1개
+        // Spanning SolveByCategory.tree 간선 N-1개
         int count = 0;
         int ans = 0;
         for (Edge e : edgeList) {
@@ -135,7 +135,7 @@ public class Q1197 {
         N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        // init graph
+        // init SolveByCategory.graph
         graph = new ArrayList[N + 1];
         for (int i = 0; i < N + 1; i++)
             graph[i] = new ArrayList<Edge>();

@@ -31,7 +31,7 @@ public class Q1005 {
                 st = new StringTokenizer(br.readLine());
                 int u = Integer.parseInt(st.nextToken());
                 int v = Integer.parseInt(st.nextToken());
-                // graph
+                // SolveByCategory.graph
                 graph[u].add(v);
                 inList[v].add(u);
                 inDegree[v]++;

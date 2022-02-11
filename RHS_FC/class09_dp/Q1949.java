@@ -13,12 +13,12 @@ N개 마을,Tree구조
 우수마을 이거나 우수마을이 아니거나.
 우수마을이 아닌 노드의 child는 모두 우수마을인가? 아닐 수 있음.
 루트의 상태는 일단 두가지로 정해짐.
-dp[root][0] : 우수마을 아님 
-dp[root][1] : 우수마을
-dp[root][0] 에대해서는 +=Math.max(dp[child][0], dp[child][1]) child가 0일수도 1일 수도 있으므로..
-dp[root][1]이라면 += dp[child][0] 우수마을이 아니여야함.
-dp[node][0] = 일단 기본적으로 0값이 들어가고
-dp[node][1] = 자신의 값이 들어갈거임.
+SolveByCategory.dp[root][0] : 우수마을 아님
+SolveByCategory.dp[root][1] : 우수마을
+SolveByCategory.dp[root][0] 에대해서는 +=Math.max(SolveByCategory.dp[child][0], SolveByCategory.dp[child][1]) child가 0일수도 1일 수도 있으므로..
+SolveByCategory.dp[root][1]이라면 += SolveByCategory.dp[child][0] 우수마을이 아니여야함.
+SolveByCategory.dp[node][0] = 일단 기본적으로 0값이 들어가고
+SolveByCategory.dp[node][1] = 자신의 값이 들어갈거임.
 접근 방법 :
 제한 조건 : 
 */

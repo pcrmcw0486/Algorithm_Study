@@ -15,7 +15,7 @@ package solvedac.level5.gold4;
     R, C <= 20
 접근 방법 :
     2^26의 상태. 2^26 = 67_108_864  >> 상태의 확인 bit
-    back tracking 으로 가본다. with dp
+    back tracking 으로 가본다. with SolveByCategory.dp
     back tracking으로 가는 건 너무 많은 경우의 수와
     중복의 경우의 수가 있음.
      →  ←  ↑ ↓
@@ -23,7 +23,7 @@ package solvedac.level5.gold4;
      ↑ → → ↓ 로 도착한 칸 의 위치는 같지만 상태는 다르다.
      dp로 해결하는데 어려움이 있다.
      
-     backtracking..다시 돌아가는 건 안됨.(중복 X)'
+     SolveByCategory.backtracking..다시 돌아가는 건 안됨.(중복 X)'
       1. bfs
         >> bfs로 하기에 상태공간의 정의가 [R][C][2^26] 이 되어야함.
      2. dfs
@@ -38,8 +38,8 @@ package solvedac.level5.gold4;
        >> 가 맞은 판단.
 
        ++ bit가 아니라 boolean[26]으로도 가능하다.
-       역시 backtracking promising 에 따라 달라진다 속도가.
-    3. dp (X)
+       역시 SolveByCategory.backtracking promising 에 따라 달라진다 속도가.
+    3. SolveByCategory.dp (X)
       dp는 작은 문제를 풀었을 때 큰 문제를 풀어야하나.
       → →  로 도착한 경우와
      ↑ → → ↓ 로 도착한 칸 의 위치는 같지만 상태는 다르다.

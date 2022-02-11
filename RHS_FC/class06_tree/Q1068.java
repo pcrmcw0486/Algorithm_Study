@@ -22,7 +22,7 @@ import java.io.*;
 import java.util.*;
 public class Q1068 {
     static int cnt =0;
-    static ArrayList<ArrayList<Integer>> tree;
+    static ArrayList<ArrayList<Integer>> SolveByCategory.tree;
     static boolean[] visited;
     static int target;
     public static void main(String[] args) throws IOException {

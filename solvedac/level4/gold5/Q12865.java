@@ -14,10 +14,10 @@ N개의 물건 각물건은 무게 W와 가치 V를 가짐.
 조건은 K만큼의 무게. 최대의 V값.
 넣으면서 확인할 수 있는 것은 무게이다.
 
-떠오르는 접근 방법은 backtracking 또는 dp
-dp[x] = x무게일 때 넣을 수 있는 가장 큰 가치.
+떠오르는 접근 방법은 SolveByCategory.backtracking 또는 SolveByCategory.dp
+SolveByCategory.dp[x] = x무게일 때 넣을 수 있는 가장 큰 가치.
 (w,v)가 왓을 때
-dp[x-w] + v 와 dp[x]를 비교한다. 그럼 중복체크는? 넣었는지 어케암.
+SolveByCategory.dp[x-w] + v 와 SolveByCategory.dp[x]를 비교한다. 그럼 중복체크는? 넣었는지 어케암.
 
 두가지를 모두 사용한다. 하나의 물건을 넣을 때 고려할 것.
  - 무게를 넘었는가?
@@ -45,7 +45,7 @@ public class Q12865 {
     }
 
     public static void solve() {
-        // dp[i]는 무게가 K일 때 가질 수 있는 가장 큰 가치
+        // SolveByCategory.dp[i]는 무게가 K일 때 가질 수 있는 가장 큰 가치
         int[] dp = new int[K + 1];
         // 물건을 하나씩 먼저 봄으로써 중복으로 들어가는 걸 방지한다.
 

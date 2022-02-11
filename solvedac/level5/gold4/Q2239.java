@@ -34,7 +34,7 @@ package solvedac.level5.gold4;
     FLOW
     1. data input
     2. data init ( 현재 상태 저장) O(N^2) * 3
-    3. backtracking
+    3. SolveByCategory.backtracking
 */
 
 import java.io.*;

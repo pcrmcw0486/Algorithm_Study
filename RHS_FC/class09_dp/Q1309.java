@@ -39,12 +39,12 @@ public class Q1309 {
     }
     // 더 간단하게 할 수 있음.
     // public static void solve(int target) {
-    // int dp[] = new int[100002];
-    // dp[0] = 1;
-    // dp[1] = 3;
+    // int SolveByCategory.dp[] = new int[100002];
+    // SolveByCategory.dp[0] = 1;
+    // SolveByCategory.dp[1] = 3;
     // for (int i = 2; i < 100002; i++) {
-    // dp[i] = (dp[i - 2] + 2 * dp[i - 1]) % 9901;
+    // SolveByCategory.dp[i] = (SolveByCategory.dp[i - 2] + 2 * SolveByCategory.dp[i - 1]) % 9901;
     // }
-    // System.out.println(dp[target]);
+    // System.out.println(SolveByCategory.dp[target]);
     // }
 }

@@ -28,7 +28,7 @@ public class Q5557 {
         int N = Integer.parseInt(br.readLine());
         long[][] dp = new long[N-1][21];
 
-        ///dp[0][0] = 1L;
+        ///SolveByCategory.dp[0][0] = 1L;
         // 시작 값이 0일 때 j-0 ==0 이고 j+0 ==0 이라서 안됨.
 
         st = new StringTokenizer(br.readLine());

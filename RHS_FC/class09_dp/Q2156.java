@@ -9,23 +9,23 @@ package RHS_FC.class09_dp;
 1. 포도주 잔 선택하면 다 마셔야함. 
 2. 연속으로 3잔을 모두 못마심. 
   >> 최대 두잔까지 지금 잔 마실꺼면 전전잔마시면안됨.
-dp[i] >> i잔까지의 최대량.
+SolveByCategory.dp[i] >> i잔까지의 최대량.
 최대로 먹으려면?
 그렇다면 한잔 또는 두잔 마시야됨.
-dp[x][0] = x-1잔을 마시지 않을 때
-dp[x][1] = x-1잔을 마실 때
-dp[x][0] = Math.max(dp[i-1][0], dp[i-1][1]) // 
-dp[x][1] = dp[i-1][0] 
+SolveByCategory.dp[x][0] = x-1잔을 마시지 않을 때
+SolveByCategory.dp[x][1] = x-1잔을 마실 때
+SolveByCategory.dp[x][0] = Math.max(SolveByCategory.dp[i-1][0], SolveByCategory.dp[i-1][1]) //
+SolveByCategory.dp[x][1] = SolveByCategory.dp[i-1][0]
 접근 방법 :
  1) x-1잔을 마시지 않는다 // 마신다. (이 경우 x잔은 무조건 마시는 경우임)
-  x-1잔은 마시지 않는다 : dp[x][0] = Math.max(dp[x-2][0],dp[x-2][1]);
-  x-1잔을 마신다. : dp[x][1] = Math.max(dp[x-1][0])
+  x-1잔은 마시지 않는다 : SolveByCategory.dp[x][0] = Math.max(SolveByCategory.dp[x-2][0],SolveByCategory.dp[x-2][1]);
+  x-1잔을 마신다. : SolveByCategory.dp[x][1] = Math.max(SolveByCategory.dp[x-1][0])
   
 
  2) x잔을 마신다// 마시지 않는다.
   기저조건 2까지 채워주야함.
-   마신다 : dp[x][0] = data[x] + Math.max(data[x-1] + dp[x-2][0], data[x-1][1])
-   마시지않는다 : dp[x][1] = Math.max(dp[x-1][0], dp[x-1][1])
+   마신다 : SolveByCategory.dp[x][0] = data[x] + Math.max(data[x-1] + SolveByCategory.dp[x-2][0], data[x-1][1])
+   마시지않는다 : SolveByCategory.dp[x][1] = Math.max(SolveByCategory.dp[x-1][0], SolveByCategory.dp[x-1][1])
 제한 조건 : 
 나는 먹는 걸로 한번 해볼게.
 */
@@ -62,7 +62,7 @@ public class Q2156 {
         return Math.max(dp[N][0], dp[N][1]);
     }
 
-    // x를 마실 때 dp[x] 는 최대 마실 수 있는 양
+    // x를 마실 때 SolveByCategory.dp[x] 는 최대 마실 수 있는 양
     public static int solve2() {
         int d[] = new int[N + 1];
         d[1] = data[1];

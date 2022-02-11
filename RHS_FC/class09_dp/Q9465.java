@@ -20,8 +20,8 @@ d[n][0] :위에 것이 살아있다.
                
 d[n][1] : 아래 것 그전 상태는 위를 골랐어야함.
 
-위를 고를 때 d[n][0] = data[i] + Math.max(dp[i-1][1], dp[i-2][0], dp[n-2][1]);
-아래 고를 때 d[n][1] = data[i] + Math.max(dp[n-1][0], dp[n-2][0], dp[n-2][1]);
+위를 고를 때 d[n][0] = data[i] + Math.max(SolveByCategory.dp[i-1][1], SolveByCategory.dp[i-2][0], SolveByCategory.dp[n-2][1]);
+아래 고를 때 d[n][1] = data[i] + Math.max(SolveByCategory.dp[n-1][0], SolveByCategory.dp[n-2][0], SolveByCategory.dp[n-2][1]);
 
 제한 조건 : 
 */

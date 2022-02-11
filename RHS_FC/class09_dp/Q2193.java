@@ -17,14 +17,14 @@ xxxxxxx0 이후에는 1 또는 0이 올 수 있지만
 xxxxxxx1 이후에는 0밖에 오지 못함.
 구분하지 않으면 어려움.
 점화식을 세우면
-0으로 끝난다 : dp[i][0] = dp[i][1] + dp[i][0]
-1으로 끝난다 : dp[i][1] = dp[i][0]
+0으로 끝난다 : SolveByCategory.dp[i][0] = SolveByCategory.dp[i][1] + SolveByCategory.dp[i][0]
+1으로 끝난다 : SolveByCategory.dp[i][1] = SolveByCategory.dp[i][0]
 00
 01
 10
 기저조건
-dp[i][0] = 0;
-dp[i][1] = 1;
+SolveByCategory.dp[i][0] = 0;
+SolveByCategory.dp[i][1] = 1;
 접근 방법 :
 제한 조건 : 
 
@@ -33,17 +33,17 @@ i = 2  10
 i = 3  1 00 1 01
 i = 4 1000 1010 1001  > 10 + { (10(i==2)) 00, 01(i==3))
 i = 5 10 + {100, 101(i==3), 000, 010, 001(i==4)}
-dp[i] = d[i-2] + d[i-1]
+SolveByCategory.dp[i] = d[i-2] + d[i-1]
 
 0으로 끝날때 1로 끝날때로도 가능
-dp[1][0] = 0; dp[1][1] = 1;
-dp[2][0] = 1; dp[2][1] = 0;
-dp[3][0] = dp[3-1][0] + dp[i-1][1]; // 0
-dp[3][1] = dp[3-2][0] + dp[i-2][1]; // 1
-dp[4][0] = dp[3][0] + dp[3][1]; // 10 + >> 01
-dp[4][1] = dp[2][0] + dp[2][1]; // 10 + >>10 00 
-dp[5][0] = dp[4][0] + dp[4][1]; // 10 + >> 000 010 001
-dp[5][1] = dp[3][0] + dp[3][1]; // 10 + >> 100 101 
+SolveByCategory.dp[1][0] = 0; SolveByCategory.dp[1][1] = 1;
+SolveByCategory.dp[2][0] = 1; SolveByCategory.dp[2][1] = 0;
+SolveByCategory.dp[3][0] = SolveByCategory.dp[3-1][0] + SolveByCategory.dp[i-1][1]; // 0
+SolveByCategory.dp[3][1] = SolveByCategory.dp[3-2][0] + SolveByCategory.dp[i-2][1]; // 1
+SolveByCategory.dp[4][0] = SolveByCategory.dp[3][0] + SolveByCategory.dp[3][1]; // 10 + >> 01
+SolveByCategory.dp[4][1] = SolveByCategory.dp[2][0] + SolveByCategory.dp[2][1]; // 10 + >>10 00
+SolveByCategory.dp[5][0] = SolveByCategory.dp[4][0] + SolveByCategory.dp[4][1]; // 10 + >> 000 010 001
+SolveByCategory.dp[5][1] = SolveByCategory.dp[3][0] + SolveByCategory.dp[3][1]; // 10 + >> 100 101
 */
 
 import java.io.*;

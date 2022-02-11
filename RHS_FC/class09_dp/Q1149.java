@@ -55,15 +55,15 @@ public class Q1149 {
 
     // solution ohHo... 저장공간 최소화
     /*
-     * int N = Integer.parseInt(br.readLine()); int dp[][] = new int[2][3]; int prev
+     * int N = Integer.parseInt(br.readLine()); int SolveByCategory.dp[][] = new int[2][3]; int prev
      * = 0; int next = 1; int temp = 1; for (int i = 0; i < N; i++) {
      * StringTokenizer st = new StringTokenizer(br.readLine()); int R =
      * Integer.parseInt(st.nextToken()); int G = Integer.parseInt(st.nextToken());
-     * int B = Integer.parseInt(st.nextToken()); dp[next][0] = Math.min(dp[prev][1],
-     * dp[prev][2]) + R; dp[next][1] = Math.min(dp[prev][0], dp[prev][2]) + G;
-     * dp[next][2] = Math.min(dp[prev][0], dp[prev][1]) + B; temp = next; next =
-     * prev; prev = temp; } System.out.println(Math.min(dp[prev][0],
-     * Math.min(dp[prev][1], dp[prev][2])));
+     * int B = Integer.parseInt(st.nextToken()); SolveByCategory.dp[next][0] = Math.min(SolveByCategory.dp[prev][1],
+     * SolveByCategory.dp[prev][2]) + R; SolveByCategory.dp[next][1] = Math.min(SolveByCategory.dp[prev][0], SolveByCategory.dp[prev][2]) + G;
+     * SolveByCategory.dp[next][2] = Math.min(SolveByCategory.dp[prev][0], SolveByCategory.dp[prev][1]) + B; temp = next; next =
+     * prev; prev = temp; } System.out.println(Math.min(SolveByCategory.dp[prev][0],
+     * Math.min(SolveByCategory.dp[prev][1], SolveByCategory.dp[prev][2])));
      */
     /*
      * 변수 6개로 퉁치기. int N = read(), R = read(), G = read(), B = read();

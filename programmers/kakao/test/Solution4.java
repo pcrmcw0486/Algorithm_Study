@@ -8,11 +8,11 @@ public class Solution4 {
 
     // public int[] solution(int n, int[] info) {
     // int[] answer = new int[10];
-    // int[] dp = new int[n];
+    // int[] SolveByCategory.dp = new int[n];
     // for (int j = 1; j < n + 1; j++) {
     // for (int i = 1; i < info.length; i++) {
     // if (info[i] == j - 1)
-    // dp[j] = Math.max(dp[j], i);
+    // SolveByCategory.dp[j] = Math.max(SolveByCategory.dp[j], i);
     // }
     // }
 

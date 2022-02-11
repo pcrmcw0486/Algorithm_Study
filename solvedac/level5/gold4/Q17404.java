@@ -15,14 +15,14 @@ N개의 집이 있고 거리는 선분으로 나타낼 수 있다. (1~N번집)
 접근 방법 :
  원형으로 이루어진 형태에서의 dp이다.
  주어진 조건에 따라 case를 나누어 계산한다.
- 1번째 집이 R일 때 1~~~N-1  N번째 집은 G or B (dp[n-1][G] + B or dp[n-1][B] + G)
-                                              dp[n-1][R] + Math.min(B,G);
+ 1번째 집이 R일 때 1~~~N-1  N번째 집은 G or B (SolveByCategory.dp[n-1][G] + B or SolveByCategory.dp[n-1][B] + G)
+                                              SolveByCategory.dp[n-1][R] + Math.min(B,G);
  1번째 집이 G일 때 1~~~N-1 N번째 집은 R,B
    - n번째 집을 R로 칠할 때
-    dp[n][R] = dp[n-1][G]+cost[n][R] or dp[n-1][B] + cost[n][R];
-    dp[n][G] X
+    SolveByCategory.dp[n][R] = SolveByCategory.dp[n-1][G]+cost[n][R] or SolveByCategory.dp[n-1][B] + cost[n][R];
+    SolveByCategory.dp[n][G] X
     - n번째 집을 B로 칠할때
-    dp[n][B] = dp[n-1][G]+cost[n][B] dp[n-1][R]+cost[n][B]
+    SolveByCategory.dp[n][B] = SolveByCategory.dp[n-1][G]+cost[n][B] SolveByCategory.dp[n-1][R]+cost[n][B]
 */
 
 import java.io.*;

@@ -6,10 +6,10 @@ package solvedac.level4;
 문제이해 
 -----------------
 LIS라고 하는 유명한 문제이다. 할때마다 헷갈리네.
-dp
+SolveByCategory.dp
 
 접근 방법 :
-dp[i] 는 i번째까지 증가했던 가장 긴 수열.
+SolveByCategory.dp[i] 는 i번째까지 증가했던 가장 긴 수열.
 제한 조건 : 
 */
 

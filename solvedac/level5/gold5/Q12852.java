@@ -69,7 +69,7 @@ public class Q12852 {
         }
 
         // for (int j = 1; j < N + 1; j++) {
-        // System.out.print(dp[j] + " ");
+        // System.out.print(SolveByCategory.dp[j] + " ");
         // }
         // System.out.println();
 

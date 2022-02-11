@@ -12,7 +12,7 @@ n<=1000
 짝 홀 밖에 없네
 2*4 면? (2*3) * 1 // (2*2) (2*2) 
 라고 생각했으나
-| |, = 2가지 모양으로 채워질때 dp[i-2]상태에서 ||의 모양은 dp[i-1] 모양과 동일함.
+| |, = 2가지 모양으로 채워질때 SolveByCategory.dp[i-2]상태에서 ||의 모양은 SolveByCategory.dp[i-1] 모양과 동일함.
 *2가 아니라 +1
 
 이제는 계산 문제
@@ -21,8 +21,8 @@ n<=1000
 1의 자리로 나눈 값들에서 더하고 나눠도 1의 자리는 보장이됨.
 (a%b) + (c%b) = (a+c)%b 분배법칙 적용 .
 if X > 10007 
-dp[i] : 2*i 까지 채웠을 때 방법의 수 
-dp[i] = dp[i-1] + dp[i-2] (i>3)
+SolveByCategory.dp[i] : 2*i 까지 채웠을 때 방법의 수
+SolveByCategory.dp[i] = SolveByCategory.dp[i-1] + SolveByCategory.dp[i-2] (i>3)
  */
 import java.io.*;
 

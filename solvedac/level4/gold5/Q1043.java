@@ -92,7 +92,7 @@ public class Q1043 {
         // ans계산
         int cnt = M;
         boolean knowLie = false;
-        // tree 높이 줄이기 +
+        // SolveByCategory.tree 높이 줄이기 +
         for (int i = 1; i < N + 1; i++)
             find(i);
         for (int i = 0; i < M; i++) {

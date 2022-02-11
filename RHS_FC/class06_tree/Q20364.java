@@ -15,7 +15,7 @@ import java.io.*;
 import java.util.*;
 
 public class Q20364 {
-    static boolean[] tree;
+    static boolean[] SolveByCategory.tree;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

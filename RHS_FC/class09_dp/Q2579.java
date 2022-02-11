@@ -9,17 +9,17 @@ package RHS_FC.class09_dp;
 
 점수는 10_000
 계단 개수는 300 이하 Int형으로 커버 가능.
-dp[i] i계단까지의 합.
+SolveByCategory.dp[i] i계단까지의 합.
 상태 정의를 해보자
 i단계에 도착했을 때
-1+1로왔을 수도  ?? dp[i-1][0]인데
-+1로 왔을 수도  dp[i-1][1]
-+2로 왔을 수도. dp[i-2]
+1+1로왔을 수도  ?? SolveByCategory.dp[i-1][0]인데
++1로 왔을 수도  SolveByCategory.dp[i-1][1]
++2로 왔을 수도. SolveByCategory.dp[i-2]
 이라고 한다면, 
 그냥 상태 3개면
 1칸 오른상태가 j
-dp[i][0] : 1칸오르기 => dp[i-2][1] dp[i-2][0]  dp[i-1][0] = > i-1 번째를 안밟고 도착
-dp[i][1] : 1칸 오른 상태가 1 => dp[i-1][1] -> i-1번째를 밟고 도착.
+SolveByCategory.dp[i][0] : 1칸오르기 => SolveByCategory.dp[i-2][1] SolveByCategory.dp[i-2][0]  SolveByCategory.dp[i-1][0] = > i-1 번째를 안밟고 도착
+SolveByCategory.dp[i][1] : 1칸 오른 상태가 1 => SolveByCategory.dp[i-1][1] -> i-1번째를 밟고 도착.
 
  */
 import java.io.*;

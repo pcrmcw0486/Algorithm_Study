@@ -7,7 +7,7 @@ DFS로 탐색한 결과와 BFS로 탐색한 결과를 출력.
 N 1000
 M 10_000
 어떤 두 정점 사이에 여러개의 간선이 있을 수 있다.
-양방향(undirected graph)
+양방향(undirected SolveByCategory.graph)
 처리할게
  1. 중복 간선(무시 할건지, 무시 가능하긴함) > visit으로 check 하면 됨.
  2. 작은 간선 번호부터 how? (sort 때리면 되긴 하죠?) NlogN이긴 한데

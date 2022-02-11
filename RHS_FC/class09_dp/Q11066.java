@@ -6,8 +6,8 @@ package RHS_FC.class09_dp;
 이름 및 난이도 : 파일합치기 Gold III
 문제이해 
 -----------------
-dp[i][j] : i~j 까지 연속된 방법으로 합쳤을 때 가장 최소값을 가지는.
- dp[i][j]  = Math.min(dp[i][k] + dp[k][j])
+SolveByCategory.dp[i][j] : i~j 까지 연속된 방법으로 합쳤을 때 가장 최소값을 가지는.
+ SolveByCategory.dp[i][j]  = Math.min(SolveByCategory.dp[i][k] + SolveByCategory.dp[k][j])
 접근 방법 :
 제한 조건 : 
 */

@@ -21,7 +21,7 @@ public class Q1389 {
         ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();
         int[][] point = new int[N + 1][N + 1];
         for (int i = 0; i < N + 1; i++) {
-            // graph.add(new ArrayList<Integer>());
+            // SolveByCategory.graph.add(new ArrayList<Integer>());
             Arrays.fill(point[i], 200);
             point[i][i] = 0;
         }
@@ -29,8 +29,8 @@ public class Q1389 {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
-            // graph.get(u).add(v);
-            // graph.get(v).add(u);
+            // SolveByCategory.graph.get(u).add(v);
+            // SolveByCategory.graph.get(v).add(u);
             point[u][v] = 1;
             point[v][u] = 1;
 

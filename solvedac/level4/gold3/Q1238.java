@@ -7,7 +7,7 @@ package solvedac.level4.gold3;
 -----------------
 N개의 숫자로 구분된 각 마을에 한명의 학생.
 N명의 학생 X번 마을에 모여서 파티.
-M개의 단방향 도로(directed graph)  i번째 길은 i의 시간 소요
+M개의 단방향 도로(directed SolveByCategory.graph)  i번째 길은 i의 시간 소요
 
 학생들은 파티에 참석하기 위해 걸어가서 다시 그들의 마을로 돌아와야함.
 최단시간에 오고가고 싶음.

@@ -11,14 +11,14 @@ package RHS_FC.class09_dp;
 0,1,2,3,4,5,6,7,8,9,10
 길이 2라면
 10,11 202122, 30313233
-dp[n][i] : 수열의 길이가 n일때 오름차순 가능한 가장 앞자리수
-dp[2][i] : 수열의 길이가 2일 때 
+SolveByCategory.dp[n][i] : 수열의 길이가 n일때 오름차순 가능한 가장 앞자리수
+SolveByCategory.dp[2][i] : 수열의 길이가 2일 때
            i보다 작고 0보다 큰 수 중 그 전 수열의 값은 보장된다.
-           즉 dp[2][1] = dp[1][0] + dp[1][1] + dp[1][2]
-dp[3][i]  dp[3][3] dp[2][0] dp[2][1] dp[2][2] dp[2][3] 끝.
+           즉 SolveByCategory.dp[2][1] = SolveByCategory.dp[1][0] + SolveByCategory.dp[1][1] + SolveByCategory.dp[1][2]
+SolveByCategory.dp[3][i]  SolveByCategory.dp[3][3] SolveByCategory.dp[2][0] SolveByCategory.dp[2][1] SolveByCategory.dp[2][2] SolveByCategory.dp[2][3] 끝.
 3 () ()
-수는 0으로 시작할수 있음. 하지만 dp[1][0] 이나 dp[2][0] 이나 0은 중복밖에 안되므로
-dp[x][0] = 1;
+수는 0으로 시작할수 있음. 하지만 SolveByCategory.dp[1][0] 이나 SolveByCategory.dp[2][0] 이나 0은 중복밖에 안되므로
+SolveByCategory.dp[x][0] = 1;
  */
 import java.io.*;
 

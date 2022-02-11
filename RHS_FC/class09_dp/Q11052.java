@@ -14,8 +14,8 @@ package RHS_FC.class09_dp;
  ex) 순서대로 1(1) 5(2) 6(3) 7(4) 일 때 카드를 4개 갖고자할 때 지불할 금액의 최댓값.
   2카드 두개 10원.
    3(1) 5(2) 15(3) 16(4) 
- dp[i]  i개 살 때 최댓값이라고 하자.
- dp[i] = Math.max(card[i], )
+ SolveByCategory.dp[i]  i개 살 때 최댓값이라고 하자.
+ SolveByCategory.dp[i] = Math.max(card[i], )
  N번 동안 N/2번 봐야하는데..
  되긴 되겟지만..
 접근 방법 :
@@ -35,7 +35,7 @@ public class Q11052 {
         for(int i=1;i<N+1;i++){
             data[i] = Integer.parseInt(st.nextToken());
         }
-        //dp[0] = data[0];
+        //SolveByCategory.dp[0] = data[0];
         for(int i = 1;i<N+1;i++){
             dp[i] = data[i];
             for(int j = 1;j<i+1;j++){

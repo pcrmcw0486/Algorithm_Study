@@ -9,7 +9,7 @@ RGB거리 집 N 1번부터 N번 집이 순서대로 있음.
 RGB로 칠하는 비용이 주어질 때 아래 규칙을 만족해라.
 
 접근 방법 :
-dp[i][3] : 순서에 따라 i번째 집을 R,G,B로 칠할 때 비용.
+SolveByCategory.dp[i][3] : 순서에 따라 i번째 집을 R,G,B로 칠할 때 비용.
 sliding window로 두개로 해서 next prev로 풀어도 가능하다.
 제한 조건 : 
 */

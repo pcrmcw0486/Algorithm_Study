@@ -126,7 +126,7 @@ public class Solution4 {
     }
 
     public int solution2(int n, int start, int end, int[][] roads, int[] traps) {
-        // dp 초기화
+        // SolveByCategory.dp 초기화
         for (int i = 1; i <= n; i++) {
             Arrays.fill(d1[i], INF1);
         }

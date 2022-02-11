@@ -14,15 +14,15 @@ package solvedac.level4.gold5;
  
 접근 방법 :
 어떠한 칸 (i,j)에 도착햇을 때 할 수 있는 방법의 수를 기록한다.
- 빈칸이 아니라면 방법이 없다. dp[i][j][0], [1] , [2] = 0; continue;
+ 빈칸이 아니라면 방법이 없다. SolveByCategory.dp[i][j][0], [1] , [2] = 0; continue;
 어떠한 칸 i,j칸이 빈칸일 때,
-dp[i][j][0] : i,j칸에 가로로 놓을 수 있는 방법의 수
-    dp[i][j][0] = dp[i][j-1][0] (그 전 가로) + dp[i-1][j-1][2] (대각 위치)
-dp[i][j][1] : i,j칸에 세로로 놓을 수 있는 방법의 수
-    dp[i][j][1] = dp[i-1][j][1] (그전 세로) + dp[i-1][j-1][2] (대각 위치)
-dp[i][j][2] : i,j칸에 대각선으로 놓을 수 있는 방법의 수
+SolveByCategory.dp[i][j][0] : i,j칸에 가로로 놓을 수 있는 방법의 수
+    SolveByCategory.dp[i][j][0] = SolveByCategory.dp[i][j-1][0] (그 전 가로) + SolveByCategory.dp[i-1][j-1][2] (대각 위치)
+SolveByCategory.dp[i][j][1] : i,j칸에 세로로 놓을 수 있는 방법의 수
+    SolveByCategory.dp[i][j][1] = SolveByCategory.dp[i-1][j][1] (그전 세로) + SolveByCategory.dp[i-1][j-1][2] (대각 위치)
+SolveByCategory.dp[i][j][2] : i,j칸에 대각선으로 놓을 수 있는 방법의 수
     i,j칸 왼쪽과 위쪽이 비어있을 때 
-    dp[i][j][2] = dp[i-1][j-1][0] + dp[i-1][j-1][1] + dp[i-1][j-1][2];
+    SolveByCategory.dp[i][j][2] = SolveByCategory.dp[i-1][j-1][0] + SolveByCategory.dp[i-1][j-1][1] + SolveByCategory.dp[i-1][j-1][2];
 
 
 제한 조건 : 

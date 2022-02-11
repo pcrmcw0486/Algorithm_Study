@@ -11,11 +11,11 @@ n>3일 때
 n-1 + 1 = n
 n-2 + 2 = n
 n-3 + 3 = n
-dp[1] = 1    //1 
-dp[2] = 2   // 1+1 // 2
-dp[3] = 4   // 1+1+1 // 2+1 // 3 // 1+2 
-dp[4] = 생각한대로한다면
- dp[4] = dp[1] + dp[2] + dp[3]  = 7 
+SolveByCategory.dp[1] = 1    //1
+SolveByCategory.dp[2] = 2   // 1+1 // 2
+SolveByCategory.dp[3] = 4   // 1+1+1 // 2+1 // 3 // 1+2
+SolveByCategory.dp[4] = 생각한대로한다면
+ SolveByCategory.dp[4] = SolveByCategory.dp[1] + SolveByCategory.dp[2] + SolveByCategory.dp[3]  = 7
   
  */
 import java.io.*;

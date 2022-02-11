@@ -8,9 +8,9 @@ package solvedac.level4.gold5;
 관련 문제가 많을 것 같음. 그리고 이거 나는 string이라 어려웟음.
 
 접근 방법 :
-  1 .  dp
-    dp[i][j] 2차원으로 두고 dp[i][j] = i,j까지의 최장 공통 수열.
-    즉 dp[i][j] = Math.max(dp[i-1][j], dp[j-1][i]) + 같다면 +1 아니면 그냥.
+  1 .  SolveByCategory.dp
+    SolveByCategory.dp[i][j] 2차원으로 두고 SolveByCategory.dp[i][j] = i,j까지의 최장 공통 수열.
+    즉 SolveByCategory.dp[i][j] = Math.max(SolveByCategory.dp[i-1][j], SolveByCategory.dp[j-1][i]) + 같다면 +1 아니면 그냥.
 제한 조건 : 
 */
 

@@ -34,8 +34,48 @@ import java.io.*;
 import java.util.*;
 
 public class Q12865 {
+    static int N;
+    static int K;
+    static int[] value;
+    static int[] weight;
 
     public static void main(String[] args) throws IOException {
+        input();
+        solve();
+    }
+
+    public static void solve() {
+        // dp[i]는 무게가 K일 때 가질 수 있는 가장 큰 가치
+        int[] dp = new int[K + 1];
+        // 물건을 하나씩 먼저 봄으로써 중복으로 들어가는 걸 방지한다.
+
+        for (int i = 0; i < N; i++) {
+            for (int j = K; j >= 0; j--) {
+                if (j - weight[i] >= 0 && dp[j] < dp[j - weight[i]] + value[i]) {
+                    dp[j] = dp[j - weight[i]] + value[i];
+                }
+            }
+        }
+
+        System.out.println(dp[K]);
+
+    }
+
+    public static void input() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
+        weight = new int[N];
+        value = new int[N];
+        for (int i = 0; i < N; i++) {
+            st = new StringTokenizer(br.readLine());
+            weight[i] = Integer.parseInt(st.nextToken());
+            value[i] = Integer.parseInt(st.nextToken());
+        }
+    }
+
+    public static void solution_prev() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());

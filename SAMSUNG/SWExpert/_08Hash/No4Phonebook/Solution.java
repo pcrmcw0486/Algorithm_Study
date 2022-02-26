@@ -170,7 +170,7 @@ class Solution
 
     public static void main(String[] args) throws Exception
     {
-        System.setIn(new java.io.FileInputStream("src/SWExpert/_08Hash/No4Phonebook/sample_input.txt"));
+        System.setIn(new java.io.FileInputStream("src/SWExpert/_08Hash/No4Phonebook/input.txt"));
 
         sc = new Scanner(System.in);
 

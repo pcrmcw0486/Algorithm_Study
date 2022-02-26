@@ -60,7 +60,7 @@ public class Solution {
     }
     public static void main(String[] args) throws Exception {
         int TC;
-        //System.setIn(new java.io.FileInputStream("res/sample_input.txt"));
+        //System.setIn(new java.io.FileInputStream("res/input.txt"));
 
         br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();

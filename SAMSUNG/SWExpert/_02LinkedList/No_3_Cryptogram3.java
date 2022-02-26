@@ -13,7 +13,7 @@ import java.util.Scanner;
 * */
 public class No_3_Cryptogram3 {
     public static void main(String[] args) throws  Exception{
-        //System.setIn(new java.io.FileInputStream("src/Samsung_SW_Expert/preTest/Problem1/sample_input.txt"));
+        //System.setIn(new java.io.FileInputStream("src/Samsung_SW_Expert/preTest/Problem1/input.txt"));
         System.setIn(new FileInputStream("src/SWExpert/_02LinkedList/input.txt"));
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();

@@ -52,58 +52,24 @@ public class Q10775 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int G = Integer.parseInt(br.readLine());
         int P = Integer.parseInt(br.readLine());
-        int ans = 0;
+        int cnt =0;
         nextGate = new int[G + 1];
-        for (int i = 1; i < G + 1; i++) nextGate[i] = i;
+        for(int i =0;i<G+1;i++) nextGate[i] = i;
         for (int i = 0; i < P; i++) {
-            int g = Integer.parseInt(br.readLine());
-            int nextG = find(g);
-            if (nextG == 0) break;
-            //union(nextG-1, g);
-            nextGate[nextG] = find(nextGate[nextG]-1);
-            ans++;
+            int target = Integer.parseInt(br.readLine());
+            int possibleGate = findNextGate(target);
+            if(possibleGate ==0) break;
+            union(possibleGate-1,possibleGate);
+            cnt++;
         }
-        System.out.println(ans);
+        System.out.println(cnt);
     }
-
-    public static int find(int x) {
-        if (nextGate[x] == x) return x;
-        return nextGate[x] = find(nextGate[x]);
+    public static int findNextGate(int x) {
+        if(nextGate[x] == x) return x;
+        return nextGate[x] = findNextGate(nextGate[x]);
     }
-
-    //x가 항상 낮은 숫자임을 보장해야함.
-    public static void union(int x, int y) {
-        if (x > y) {
-            int tmp = y;
-            y = x;
-            x = tmp;
-        }
-        x = find(x);
-        y = find(y);
-        nextGate[y] = x;
+    public static void union(int a, int b) {
+        a = findNextGate(a);
+        nextGate[b] = a;
     }
-
-//    public static int getSize(int G) {
-//        int tmp = 1;
-//        while (G > tmp) {
-//            tmp *= 2;
-//        }
-//        return tmp * 2;
-//    }
-//
-//    public static int sum(int start, int end, int node, int left, int right) {
-//        if (left > end || right < start) return 0;
-//        if (left <= start && end <= right) return tree[node];
-//        int mid = (start + end) >> 1;
-//        return sum(start, mid, node * 2, left, right) + sum(mid + 1, end, (node * 2) + 1, left, right);
-//    }
-//
-//    public static void update(int start, int end, int node,int index, int offset) {
-//        if (index < start || index > end) return;
-//        tree[node] += offset;
-//        if(start == end) return;
-//        int mid = (start+end)>>1;
-//        update(start, mid, node*2, index,offset);
-//        update(mid + 1, end, (node * 2) + 1, index, offset);
-//    }
 }

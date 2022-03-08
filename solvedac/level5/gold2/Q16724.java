@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
  *
  * ..다시 그룹구하기 DFS 또는 disjointset
  */
-public class Q16742 {
+public class Q16724 {
     static boolean[][] isCycle, visited;
     static int[][] map;
     static int[][] dir = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};

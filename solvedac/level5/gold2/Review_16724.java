@@ -24,7 +24,7 @@ import java.util.StringTokenizer;
  * 정석적으로 DFS를 통해 grouping을 하는 방법. using number
  * 또는 disjoint set을 활용해서 grouping을 하는 방법.
 */
-public class Review_16742 {
+public class Review_16724 {
     static char[][] map;
     static int[][] groupMap;
     static boolean[][] isVisited;

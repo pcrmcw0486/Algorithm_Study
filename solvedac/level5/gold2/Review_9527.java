@@ -21,36 +21,66 @@ import java.util.StringTokenizer;
  * 1의 개수
 */
 public class Review_9527 {
-    static long[] dp;
+    static long[] dp = new long[56];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        init();
         long A = Long.parseLong(st.nextToken());
-       long B = Long.parseLong(st.nextToken());
-      long ans = count(B) - count(A - 1);
-
+        long B = Long.parseLong(st.nextToken());
+        init();
+        long ans = count(B) - count(A - 1);
         System.out.println(ans);
     }
-    public static void init(){
-        //dp[x] = 2*dp[x-1] + 2^(x-1)
-        //주어지는 범위 10^16 ==> log2로 취하면 약 56자리.
-        dp = new long[56];
-        dp[1] = 1;
-        for (int i = 2; i< dp.length; i++) {
-            dp[i] = 2 * dp[i - 1] + (long)Math.pow(2, i - 1);
-        }
-    }
-    public static long count(long num){
-        int offset = 55;
-        long ans =0;
-        while(num>0){
-            if ((num & (1L << (offset))) != 0) {
-                ans += dp[offset] + (num^(1L <<(offset))) + 1 ;
-                num ^=(1L <<(offset));
+
+    public static long count(long num) {
+        int pos = 55;  //자리수
+        long cnt =0;
+        while (num > 0) {
+            if ((num & (1L << pos)) != 0) {
+                cnt += dp[pos] + (num-(1L <<pos)) + 1L;
+                num ^= (1L<<pos);  //masking &=(1<<pos)-1;
             }
-            offset--;
+            pos--;
         }
-        return ans;
+        return cnt;
+    }
+    public static void init(){
+        dp[1] = 1;
+        for (int i = 2; i < 56; i++) {
+            dp[i] = dp[i - 1] * 2 + (long)Math.pow(2, i - 1);
+        }
     }
 }
+
+//    static long[] dp;
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        init();
+//        long A = Long.parseLong(st.nextToken());
+//       long B = Long.parseLong(st.nextToken());
+//      long ans = count(B) - count(A - 1);
+//
+//        System.out.println(ans);
+//    }
+//    public static void init(){
+//        //dp[x] = 2*dp[x-1] + 2^(x-1)
+//        //주어지는 범위 10^16 ==> log2로 취하면 약 56자리.
+//        dp = new long[56];
+//        dp[1] = 1;
+//        for (int i = 2; i< dp.length; i++) {
+//            dp[i] = 2 * dp[i - 1] + (long)Math.pow(2, i - 1);
+//        }
+//    }
+//    public static long count(long num){
+//        int offset = 55;
+//        long ans =0;
+//        while(num>0){
+//            if ((num & (1L << (offset))) != 0) {
+//                ans += dp[offset] + (num^(1L <<(offset))) + 1 ;
+//                num ^=(1L <<(offset));
+//            }
+//            offset--;
+//        }
+//        return ans;
+//    }

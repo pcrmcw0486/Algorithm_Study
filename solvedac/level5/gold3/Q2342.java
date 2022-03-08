@@ -86,69 +86,19 @@ public class Q2342 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         nums = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         size = nums.length - 1; // 끝에는 0이 있음.
-        dp = new int[size][5][5];
-        System.out.println(dfs(0, 0, 0));
-
+        dp = new int[5][5][size];
+        System.out.println(solve(0, 0, 0));
     }
 
-    public static void solution1() {
-        dp = new int[size][5][5];
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < 5; j++) {
-                Arrays.fill(dp[i][j], 987654321);
-            }
-        }
-        dp[0][0][0] = 0;
-        for (int i = 0; i < size; i++) {
-            int nxt = nums[i];
-            // 모든 case
-            for (int l = 0; l < 5; l++) {
-                for (int r = 0; r < 5; r++) {
-                    // 같은 위치 반복 X
-                    // 오른발을 nxt로 움직임.
-                    int cur = dp[i][l][r];
-                    if (l != nxt) {
-                        dp[i + 1][l][nxt] = Math.min(dp[i + 1][l][nxt], cur + going(r, nxt));
-                    }
-                    // l을 nxt로 움직임.
-                    if (r != nxt) {
-                        dp[i + 1][nxt][r] = Math.min(dp[i + 1][nxt][r], cur + going(l, nxt));
-                    }
-                }
-            }
-        }
-        int ans = 987654321;
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                ans = Math.min(ans, dp[size - 1][i][j]);
-            }
-        }
-        System.out.println(ans);
-    }
-
-    public static int getPower(int curDir, int nxtDir) {
-        if (curDir == nxtDir)
-            return 1;
-        else if (curDir == 0)
-            return 2;
-        // 반대 방향
-        else if ((curDir + 1) % 4 == nxtDir - 1)
-            return 4;
-        else
-            return 3;
-    }
-
-    public static int dfs(int idx, int left, int right) {
-        if (idx == size)
-            return 0;
-        if (dp[idx][left][right] != 0)
-            return dp[idx][left][right];
-
-        int goLeft = dfs(idx + 1, nums[idx], right) + going(left, nums[idx]);
-        int goRight = dfs(idx + 1, left, nums[idx]) + going(right, nums[idx]);
-        dp[idx][left][right] = Math.min(goLeft, goRight);
-
-        return dp[idx][left][right];
+    public static int solve(int left, int right, int cnt) {
+        if(cnt == size) return 0;
+        if (dp[left][right][cnt] != 0) return dp[left][right][cnt];
+        int next = nums[cnt];
+        dp[left][right][cnt] = Math.min(
+                solve(next,right,cnt+1) + going(left,next),
+                solve(left, next, cnt+1) + going(right,next)
+        );
+        return dp[left][right][cnt];
     }
 
     public static int going(int start, int end) {

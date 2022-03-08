@@ -3,8 +3,6 @@ package solvedac.level5.gold2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 public class Review_12100 {
@@ -21,7 +19,6 @@ public class Review_12100 {
                 map[i][j] = Integer.parseInt(line[j]);
             }
         }
-
         solve(map, 0);
         System.out.println(max);
     }

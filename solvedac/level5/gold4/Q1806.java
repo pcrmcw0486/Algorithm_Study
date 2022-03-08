@@ -50,16 +50,12 @@ public class Q1806 {
         for (int right = 0; right < N; right++) {
             data[right] = Integer.parseInt(st.nextToken());
             sum += data[right];
-            if (sum >= S) {
-                while (true) {
-                    if (sum - data[left] < S) {
-                        break;
-                    }
-                    sum -= data[left];
-                    left++;
-                }
-                ans = Math.min(ans, right - left + 1);
+            if (sum < S) continue;
+            while (sum - data[left] >= S) {
+                sum -= data[left];
+                left++;
             }
+            ans = Math.min(ans, right - left + 1);
         }
         System.out.println(ans == Integer.MAX_VALUE ? 0 : ans);
 

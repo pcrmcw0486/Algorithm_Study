@@ -1,4 +1,10 @@
 package DayByDay._0323;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
 /**
  * @문제번호 : Q21943
  * @문제이름 : 연산 최대로
@@ -22,7 +28,39 @@ package DayByDay._0323;
  * 즉 start위치와 end위치 곱하기 개수 더하기 개수를 하면 해당 위치는 최대값이 된다.
 */
 public class Q21943 {
-    public static void main(String[] args) {
+    static int[] data;
+    static int[] group;
+    static int P, Q,N;
+    static int ans;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        data = new int[N];
+        for (int i = 0; i < N; i++)
+            data[i] = Integer.parseInt(st.nextToken());
+        st = new StringTokenizer(br.readLine());
+        P = Integer.parseInt(st.nextToken());
+        Q = Integer.parseInt(st.nextToken());
+        group = new int[Q + 1];
+        ans = -1;
+        dfs(0);
+        System.out.println(ans);
+    }
 
+    public static void dfs(int depth) {
+        if(depth == N){
+            int ret =1;
+            for (int i = 0; i < group.length; i++) {
+                ret *= group[i];
+            }
+            ans = Math.max(ans, ret);
+            return;
+        }
+        for (int i = 0; i < Q + 1; i++) {
+            group[i] += data[depth];
+            dfs(depth+1);
+            group[i] -= data[depth];
+        }
     }
 }

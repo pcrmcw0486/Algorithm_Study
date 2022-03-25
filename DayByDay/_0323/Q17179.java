@@ -40,44 +40,37 @@ public class Q17179 {
         int N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         L = Integer.parseInt(st.nextToken());
-
-        pos = new int[M];
-        for (int i = 1; i < M+1; i++) pos[i] = Integer.parseInt(br.readLine());
-
+        pos = new int[M + 1];
+        pos[M] = L;
+        for (int i = 0; i < M; i++)
+            pos[i] = Integer.parseInt(br.readLine());
         for (int i = 0; i < N; i++) {
-            int K = Integer.parseInt(br.readLine());
-            int ans = solve(K);
-            sb.append(ans).append('\n');
+            int cnt = Integer.parseInt(br.readLine());
+            sb.append(solve(cnt)).append('\n');
         }
         System.out.println(sb);
     }
 
-    public static int solve(int K) {
-        int l = 0;
-        int r = L;
-        int mid, ans = -1;
-       while(l<=r){
-           mid = (l+r)>>1;
-           if(isSatisfied(mid,K)){
-               ans= mid;
-               l = mid+1;
-           }else{
-               r = mid -1;
-           }
-       }
-        return ans;
-    }
-
-    public static  boolean isSatisfied(int partitionSize, int limitCnt){
-        int partition =pos[0];
-        int cnt =0;
-        for (int i = 1; i < M + 2; i++) {
-            partition += (pos[i]-pos[i-1]);
-            if (partition >= partitionSize && i != M+1) {
-                partition =0;
-                cnt++;
+    private static int solve(int limit) {
+        int l=0, r= L, mid;
+        int cnt =0, ans = -1;
+        while (l <= r) {
+            mid = (l + r) >> 1;
+            int prev = 0;
+            cnt=0;
+            for (int i = 0; i < M + 1; i++) {
+                if (pos[i] - prev >= mid) {
+                    cnt++;
+                    prev = pos[i];
+                }
             }
+          //  System.out.println(" mid : " + mid + " cnt " + cnt);
+            if (cnt >= limit+1) {
+                l = mid + 1;
+                ans = Math.max(ans, mid);
+            } else
+                r = mid - 1;
         }
-       return cnt>=limitCnt;
+        return ans;
     }
 }
